@@ -1,6 +1,7 @@
 %Import image
-file = uigetfile('*.*');
-grayImage = imread(file);
+file = uigetfile({'*.jpeg;*.jpg;*.bmp;*.tif;*.tiff;*.png;*.gif','Image Files (JPEG, BMP, TIFF, PNG and GIF)'},'Select Images','multiselect','on');
+rawImage = imread(file);
+grayImage = imgaussfilt(rawImage,3);
 
 %Draw ROI in imfreehand and get ROI info
 fontSize = 16;
